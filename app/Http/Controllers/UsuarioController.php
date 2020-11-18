@@ -52,9 +52,9 @@ class UsuarioController extends Controller
         ]);
 
         if($usuario){
-            return redirect($usuario->id)->with('success','Usuário cadastrado com sucesso.');
+            return redirect("usuarios/$usuario->id")->with('success','Usuário cadastrado com sucesso.');
         }else{
-            return redirect('')->with('error','Erro ao cadastrar o usuário.');
+            return redirect("usuarios")->with('error','Erro ao cadastrar o usuário.');
         }
     }
 
@@ -78,7 +78,8 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = $this->usuario->find($id);
+        return view('cadastrar', compact('usuario'));
     }
 
     /**
@@ -90,7 +91,13 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->usuario->where(['id' => $id])->update([
+            'nome' => $request->nome,
+            'cidade' => $request->cidade,
+            'telefone' => $request->telefone
+        ]);
+
+        return redirect('usuarios/' . $id)->with('success','Usuario editado com sucesso.');
     }
 
     /**
