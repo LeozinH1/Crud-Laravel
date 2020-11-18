@@ -89,7 +89,7 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsuariosRequest $request, $id)
     {
         $this->usuario->where(['id' => $id])->update([
             'nome' => $request->nome,

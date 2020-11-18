@@ -34,7 +34,6 @@
                         <td>
                             <a href="{{ url("usuarios/$item->id") }}" class="btn btn-light">Visualizar</a>
                             <a href="{{ url("usuarios/$item->id/edit") }}" class="btn btn-primary">Editar</a>
-
                             <form action="{{ route('usuarios.destroy', $item->id) }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('delete')
@@ -48,4 +47,5 @@
             </table>
         </div>
     </div>
+
 @endsection
