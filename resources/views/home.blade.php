@@ -25,17 +25,25 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($usuarios AS $item)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Leonardo S. Jaremczuk</td>
-                        <td>Canoinhas-SC</td>
-                        <td>(45) 3622-3402</td>
+                        <th scope="row">{{$item->id}}</th>
+                        <td>{{$item->nome}}</td>
+                        <td>{{$item->cidade}}</td>
+                        <td>{{$item->telefone}}</td>
                         <td>
-                            <a href="{{ url('visualizar') }}" class="btn btn-light">Visualizar</a>
-                            <a href="{{ url('cadastrar') }}" class="btn btn-primary">Editar</a>
-                            <a href="{{ url('deletar') }}" class="btn btn-danger">Deletar</a>
+                            <a href="{{ url($item->id) }}" class="btn btn-light">Visualizar</a>
+                            <a href="{{ url("$item->id/edit") }}" class="btn btn-primary">Editar</a>
+
+                            <form action="{{ route('destroy', $item->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">Deletar</button>
+                            </form>
+
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

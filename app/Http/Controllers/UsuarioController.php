@@ -23,7 +23,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $usuarios = $this->usuario->all();
+        return view('home', compact('usuarios'));
     }
 
     /**
