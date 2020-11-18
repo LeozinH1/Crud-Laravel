@@ -1,4 +1,4 @@
 ## Sobre
 
-Crud em Laravel.
+Crud em Laravel (Create, Read, Update and Delete).
 
