@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UsuarioController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,18 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/cadastrar', function () {
-    return view('cadastrar');
-});
-
-Route::get('/visualizar', function () {
-    return view('visualizar');
-});
-
-Route::get('/editar', function () {
-    return view('cadastrar');
-});
+Route::resource('/', UsuarioController::class);

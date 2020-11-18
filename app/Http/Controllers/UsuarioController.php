@@ -4,8 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\UsuariosRequest;
+use App\Models\Usuarios;
+
 class UsuarioController extends Controller
 {
+
+    private $usuario;
+
+    public function __construct(){
+        $this->usuario = new Usuarios();    
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +23,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        return view('home');
     }
 
     /**
@@ -23,7 +33,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('cadastrar');
     }
 
     /**
@@ -32,9 +42,19 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsuariosRequest $request)
     {
-        //
+        $usuario = $this->usuario->create([
+            'nome' => $request->nome,
+            'cidade' => $request->cidade,
+            'telefone' => $request->telefone
+        ]);
+
+        if($usuario){
+            return redirect($usuario->id)->with('success','Usuário cadastrado com sucesso.');
+        }else{
+            return redirect('')->with('error','Erro ao cadastrar o usuário.');
+        }
     }
 
     /**

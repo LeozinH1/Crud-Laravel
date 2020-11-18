@@ -9,7 +9,23 @@
             
             <h3 class="mt-5 mb-5">Cadastrar</h3>
 
-            <form>
+
+            @if(isset($errors) && count($errors) > 0)
+                <div id="message" class="alert alert-danger" role="alert">
+                    Ops.. Encontramos alguns erros: <br>
+                    <ul>
+                        @foreach($errors->all() as $erro)
+                            <li> {{$erro}} </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+
+            <form name="form_user" id="form_user" action="{{url("/")}}" method="POST">
+
+                @csrf
+
                 <div class="form-group">
                     <label for="nome">Nome Completo</label>
                     <input type="text" class="form-control" id="nome" name="nome" required>
@@ -17,12 +33,12 @@
 
                 <div class="form-group">
                     <label for="cidade">Cidade</label>
-                    <input type="password" class="form-control" id="cidade" name="cidade" required>
+                    <input type="text" class="form-control" id="cidade" name="cidade" required>
                 </div>
 
                 <div class="form-group">
                     <label for="telefone">Telefone</label>
-                    <input type="password" class="form-control" id="telefone" name="telefone" required>
+                    <input type="text" class="form-control" id="telefone" name="telefone" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
@@ -32,4 +48,8 @@
 
         </div>
     </div>
+
+   <script>
+      $("#message").delay(3200).fadeOut(300);
+   </script>    
 @endsection

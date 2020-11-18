@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col">
-            <a href="{{ url('cadastrar') }}" class="btn btn-success mb-5">Cadastrar</a>
+            <a href="{{ route('create') }}" class="btn btn-success mb-5">Cadastrar</a>
         </div>
     </div>
 
