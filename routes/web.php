@@ -15,4 +15,4 @@ use App\Http\Controllers\UsuarioController;
 |
 */
 
-Route::resource('/', UsuarioController::class);
+Route::resource('/usuarios', UsuarioController::class);

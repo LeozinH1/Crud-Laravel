@@ -9,9 +9,11 @@
             <h3 class="mt-5 mb-5">Visualizar</h3>
 
 
+            {{ $usuario->nome }} <br>
+            {{ $usuario->cidade }} <br>
+            {{ $usuario->telefone }} <br>
 
-
-            <a href="{{ url('/') }}" class="btn btn-light">Voltar</a>
+            <a href="{{ route('usuarios.index') }}" class="btn btn-light">Voltar</a>
         </div>
     </div>
 

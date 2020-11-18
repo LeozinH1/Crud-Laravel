@@ -66,7 +66,8 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        $usuario = $this->usuario->find($id);
+        return view('visualizar', compact('usuario'));
     }
 
     /**

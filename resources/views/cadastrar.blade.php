@@ -42,7 +42,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
-                <a href="{{ url('/') }}" class="btn btn-light">Voltar</a>
+                <a href="{{ route('usuarios.index') }}" class="btn btn-light">Voltar</a>
 
             </form>
 

@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col">
-            <a href="{{ route('create') }}" class="btn btn-success mb-5">Cadastrar</a>
+            <a href="{{ route('usuarios.create') }}" class="btn btn-success mb-5">Cadastrar</a>
         </div>
     </div>
 
@@ -32,10 +32,10 @@
                         <td>{{$item->cidade}}</td>
                         <td>{{$item->telefone}}</td>
                         <td>
-                            <a href="{{ url($item->id) }}" class="btn btn-light">Visualizar</a>
-                            <a href="{{ url("$item->id/edit") }}" class="btn btn-primary">Editar</a>
+                            <a href="{{ url("usuarios/$item->id") }}" class="btn btn-light">Visualizar</a>
+                            <a href="{{ url("usuarios/$item->id/edit") }}" class="btn btn-primary">Editar</a>
 
-                            <form action="{{ route('destroy', $item->id) }}" method="POST" style="display: inline;">
+                            <form action="{{ route('usuarios.destroy', $item->id) }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger">Deletar</button>
