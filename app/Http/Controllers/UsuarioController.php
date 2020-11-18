@@ -101,6 +101,7 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->usuario->destroy($id);
+        return redirect('usuarios')->with('success','Usuario apagado com sucesso.');
     }
 }
